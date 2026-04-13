@@ -1,15 +1,13 @@
 # SESSION-STATE.md — Active Working Memory
 
-This file is the agent's "RAM" — survives compaction, restarts, distractions.
-
 ## Current Task
 [None]
 
 ## Key Context (Compressed)
-[None yet]
+[决策|偏好|约束|进度 — 锚定摘要]
 
 ## Pending Actions
-- [ ] None
+- [ ] [待办]
 
 ## Recent Decisions
 [None yet]
@@ -19,4 +17,3 @@ This file is the agent's "RAM" — survives compaction, restarts, distractions.
 
 ---
 *Last updated: [timestamp]*
-*Compression ratio: N/A*

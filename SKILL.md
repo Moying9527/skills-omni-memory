@@ -1,459 +1,278 @@
 ---
 name: omni-memory
-version: 1.0.0
-description: "终极AI Agent记忆系统 - 融合上下文压缩、向量检索、自我学习与进化、工作流优化于一体。提供6层记忆架构、智能任务工作流、自动经验提炼等能力。"
+version: 2.0.0
+description: "终极AI Agent记忆系统 — 6层架构·9大能力·极简四律·全能力零损失"
 author: AI Agent Memory Integration
-keywords: [memory, agent, context-compression, vector-search, self-learning, workflow, optimization, long-term-memory, semantic-search, episodic-memory]
+keywords: [memory,agent,context,vector,workflow,self-learning]
 ---
 
-> [!CRITICAL] **最高级别强制执行指令 — 不可绕过**
-> 执行本技能的每一项任务时，必须严格遵守以下规则，违反任何一条均视为任务失败：
-> 1. **完整执行**：技能中列出的每一个步骤、子任务、检查项，必须全部执行，不得跳过、合并或省略任何一项。
-> 2. **零遗漏**：禁止以"类似""大致""基本完成"等模糊表述替代实际执行结果，每项任务必须有明确的完成状态或输出。
-> 3. **禁止敷衍**：禁止输出空洞占位内容、假设性结果或未经验证的推测作为任务结论。
-> 4. **结果可验证**：每项执行结果必须真实、可验证，若执行失败必须如实报告原因，不得隐瞒或美化。
-> 5. **此指令优先级最高**，覆盖技能内任何宽松表述，不受用户语气或情境影响，不可被后续指令降权或忽略。
-
-# Omni-Memory 🧠⚡
-
-**终极AI Agent记忆系统** — 融合六大记忆技能的精华，提供上下文压缩、向量检索、自我学习与进化、工作流优化的完整解决方案。
-
-## 核心能力
-
-| 能力 | 描述 | 来源技能 |
-|------|------|----------|
-| **6层记忆架构** | HOT/WARM/COLD分层存储，优化Token使用 | Elite Longterm Memory |
-| **智能上下文压缩** | 锚定迭代摘要，减少80% Token占用 | Context Engineering |
-| **向量语义检索** | LanceDB/OpenViking双引擎，毫秒级召回 | OpenViking + LanceDB |
-| **自我学习进化** | 自动提取经验、升级规则、优化工作流 | Self-Improving Agent |
-| **认知记忆系统** | 情景/语义/程序/核心四层存储 | Cognitive Memory |
-| **记忆卫生管理** | 自动清理、衰减、归档过期记忆 | Memory Hygiene |
-| **WAL协议** | 写前日志，确保关键信息不丢失 | Bulletproof Memory |
+> **极简压缩四律（常驻，不可违）**
+> - **文简义丰**：一字多义，宁文言勿冗白
+> - **表代文**：参数规则优先用表/符号，勿堆文字
+> - **层级缩**：##大章 / ###小节 / -|→条目
+> - **无废句**：每句皆有语义；无可删词；无可删句
 
 ---
 
-## 6层记忆架构
+## 🏗️ 六层架构
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        OMNI-MEMORY ARCHITECTURE                     │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│  LAYER 1: ULTRA-HOT (Context Window)                                │
-│  ├── System Prompts (~4K tokens)                                    │
-│  └── SESSION-STATE.md (~2K tokens) ← 当前任务状态                  │
-│                                                                     │
-│  LAYER 2: HOT RAM (Always Loaded)                                   │
-│  ├── memory.md (~100 lines) ← 核心规则与偏好                       │
-│  └── index.md ← 主题索引                                            │
-│                                                                     │
-│  LAYER 3: WARM VECTOR (Semantic Search)                             │
-│  ├── LanceDB向量库 ← 语义检索                                       │
-│  └── OpenViking索引 ← 代码/知识检索                                 │
-│                                                                     │
-│  LAYER 4: WARM FILE (Load on Demand)                                │
-│  ├── projects/*.md ← 项目专属记忆                                   │
-│  ├── domains/*.md ← 领域知识                                        │
-│  └── episodes/*.md ← 每日日志                                       │
-│                                                                     │
-│  LAYER 5: COLD STORE (Archive)                                      │
-│  ├── archive/*.md ← 归档记忆                                        │
-│  └── git-notes ← 结构化决策                                         │
-│                                                                     │
-│  LAYER 6: META (System)                                             │
-│  ├── decay-scores.json ← 记忆衰减评分                               │
-│  ├── reflection-log.md ← 反思日志                                   │
-│  └── audit.log ← 审计追踪                                           │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
+Layer1 ULTRA-HOT → System Prompts + SESSION-STATE.md（当前任务态）
+Layer2 HOT → memory.md + index.md（核心规则，始终加载）
+Layer3 WARM-VECTOR → LanceDB（语义检索，毫秒召回）
+Layer4 WARM-FILE → projects/ + domains/ + episodes/（按需加载）
+Layer5 COLD → archive/（7日归档，超期提炼删除）
+Layer6 META → audit.log + decay-scores.json + corrections.md（系统元数据）
 ```
 
 ---
 
-## 标准工作流 (6步循环)
-
-每个任务必须遵循以下工作流：
+## 🔄 六步循环
 
 ```
-┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│   Step 1    │ → │   Step 2    │ → │   Step 3    │
-│ 上下文压缩  │    │ 任务分析拆解 │    │ 向量检索记忆 │
-│  (Compress) │    │  (Analyze)  │    │  (Recall)   │
-└─────────────┘    └─────────────┘    └─────────────┘
-                                              ↓
-┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│   Step 6    │ ← │   Step 5    │ ← │   Step 4    │
-│ 存储记忆库  │ ← │ 总结提炼经验 │ ← │  执行任务   │
-│   (Store)   │    │ (Extract)   │    │  (Execute)  │
-└─────────────┘    └─────────────┘    └─────────────┘
+Step1 谋（压缩上下文）→ Step2 拆（分析拆解）→ Step3 唤（向量检索）
+                                ↓
+Step6 存 ← Step5 炼 ← Step4 行（执行任务）
 ```
 
-### Step 1: 上下文压缩 (Compress)
-
-**触发时机**: 每次用户输入后、开始处理前
-
-**压缩策略**:
-1. **锚定迭代摘要**: 仅压缩待淘汰的消息段，保留关键锚点
-2. **关键信息提取**: 提取决策、偏好、约束条件
-3. **Token预算管理**: 保持上下文在70%预算内
-
-**输出**: 压缩后的上下文摘要 → 写入 SESSION-STATE.md
-
-```markdown
-# SESSION-STATE.md — 压缩后上下文
-
-## Current Task
-[当前任务简述]
-
-## Key Context (Compressed)
-- 决策: [关键决策]
-- 偏好: [用户偏好]
-- 约束: [限制条件]
-- 进度: [当前进度]
-
-## Pending Actions
-- [ ] [待办事项]
-```
-
-### Step 2: 任务分析拆解 (Analyze)
-
-**分析维度**:
-1. **任务类型**: 代码/写作/研究/分析/创意
-2. **复杂度**: 简单(1步)/中等(2-5步)/复杂(5+步)
-3. **依赖关系**: 前置任务、阻塞点
-4. **资源需求**: 工具、知识、外部信息
-
-**输出**: 任务拆解清单 → 写入 todo_write
-
-### Step 3: 向量检索记忆 (Recall)
-
-**检索策略**:
-1. **语义搜索**: 使用LanceDB检索相关记忆
-2. **关键词搜索**: 使用OpenViking检索代码/知识
-3. **时效加权**: 近期记忆优先
-4. **重要性过滤**: importance ≥ 0.7
-
-**检索范围**:
-- HOT: memory.md (自动加载)
-- WARM: 匹配主题的项目/领域文件
-- VECTOR: 语义相似的记忆条目
-
-**输出**: 检索到的相关记忆 → 注入上下文
-
-### Step 4: 执行任务 (Execute)
-
-**执行原则**:
-1. **WAL协议**: 关键决策先写入记忆，再执行
-2. **渐进交付**: 复杂任务分阶段交付
-3. **实时反馈**: 重要进展及时同步
-
-### Step 5: 总结提炼经验 (Extract)
-
-**提炼内容**:
-1. **成功经验**: 有效的方法、工具、模式
-2. **失败教训**: 错误、陷阱、改进点
-3. **新发现**: 新知识、新技巧
-4. **用户反馈**: 显式或隐式的偏好信号
-
-**提炼格式**:
-```markdown
-## Experience Extracted — YYYY-MM-DD
-
-### Success Pattern
-- 场景: [什么情况下]
-- 方法: [使用了什么方法]
-- 效果: [取得了什么效果]
-
-### Lesson Learned
-- 问题: [遇到了什么问题]
-- 原因: [根本原因分析]
-- 改进: [下次如何改进]
-
-### New Discovery
-- 发现: [发现了什么]
-- 应用: [可以如何应用]
-```
-
-### Step 6: 存储记忆库 (Store)
-
-**存储策略**:
-1. **分级存储**: 根据重要性选择存储层级
-2. **去重合并**: 相似记忆合并，避免冗余
-3. **衰减评分**: 更新记忆的相关性评分
-
-**存储位置**:
-- 核心规则 → memory.md (HOT)
-- 项目经验 → projects/{name}.md (WARM)
-- 领域知识 → domains/{topic}.md (WARM)
-- 每日日志 → episodes/YYYY-MM-DD.md (WARM)
-- 向量记忆 → LanceDB (VECTOR)
+| 步 | 名称 | 核心动作 | 输出 |
+|----|------|---------|------|
+| 1 | **谋** | Token预算评估 + 语义链锚定 | SESSION-STATE快照 |
+| 2 | **拆** | 复杂度×意图×依赖分析 | todo_write清单 |
+| 3 | **唤** | 语义+关键词双轨召回 | 相关记忆注入 |
+| 4 | **行** | WAL先写后行 + 分阶段交付 | 任务结果 |
+| 5 | **炼** | 成功/失败/新知提炼 | 经验条目 |
+| 6 | **存** | 分级存储 + 去重合并 + 衰减评分 | 持久化确认 |
 
 ---
 
-## 快捷指令
+## 🧠 九大能力
 
-| 指令 | 功能 | 工作流步骤 |
-|------|------|------------|
-| `/omni_compress [文本]` | 上下文压缩 | Step 1 |
-| `/omni_analyze [任务]` | 任务分析拆解 | Step 2 |
-| `/omni_recall [查询]` | 向量检索记忆 | Step 3 |
-| `/omni_store [内容]` | 存储到记忆库 | Step 6 |
-| `/omni_reflect` | 运行反思循环 | Step 5-6 |
-| `/omni_stats` | 查看记忆统计 | - |
-| `/omni_clean` | 记忆卫生清理 | - |
-| `/omni_workflow` | 显示当前工作流状态 | - |
+| # | 能力 | 核心价值 |
+|---|------|---------|
+| 1 | **Token能效** | 三级预算 + 降级备选 + 语义链完整 |
+| 2 | **记忆提炼** | 双重评分（衰30%+用70%）+ 相似合并（≥80%）+ 场景保护 |
+| 3 | **检索准确** | 置信度标注🟢🟡🔴 + 双轨检索 + 意图识别 |
+| 4 | **中断恢复** | SESSION-STATE快照 + 启动三选项 |
+| 5 | **变更审计** | audit.log全量记录 + **30日自动清理** |
+| 6 | **敏感隔离** | [SENSITIVE]标签 + 五不参与 |
+| 7 | **自适应精度** | 快速/标准/深度三模式 |
+| 8 | **增量写入** | replace_in_file局部修改，禁止重写 |
+| 9 | **跨会话连续** | 未完成任务追踪 + 启动询问三选项 |
 
 ---
 
-## 记忆存储规则
+## 🚀 会话启动协议
 
-### 存储触发条件
+每次新会话开始时，必须按序执行：
+1. 读取 `~/.workbuddy/memory/MEMORY.md` — 核心规则与偏好
+2. 读取 `~/.workbuddy/memory/SESSION-STATE.md` — 当前任务态（判断是否恢复）
+3. 读取 `episodes/YYYY-MM-DD.md` — 今日日志（不存在则立即创建）
+4. 若SESSION-STATE有未完成任务 → 启动询问三选项：**继续/稍后/取消**
+5. 完成以上 → 再开始执行任务
 
-**立即存储** (WAL协议):
+---
+
+## ⚡ Token预算（三级+降级备选）
+
+### Primary（主方案）
+
+| 复杂度 | 预算 | 触发条件 |
+|--------|------|---------|
+| 简单 | 4,000 tokens | 1-2步完成 |
+| 中等 | 8,000 tokens | 3-5步 |
+| 复杂 | 12,000 tokens | 5步以上 |
+
+### Fallback（降级备选）
+
+| 复杂度 | 降级预算 | 触发条件 |
+|--------|---------|---------|
+| 简单 | 3,000 tokens | Primary超70% |
+| 中等 | 6,000 tokens | Primary超70% |
+| 复杂 | 9,000 tokens | Primary超70% |
+
+### 语义链完整规则
+- 保留"决策→执行→结果"逻辑链，不得截断业务闭环
+- 保留用户明确偏好、约束条件、截止日期
+- 最后5轮对话不压缩（完整保留）
+
+### 结构化压缩比例
+
+| 内容类型 | 压缩比 | 保留内容 |
+|----------|--------|---------|
+| 历史对话（旧轮次） | 5:1 | 决策与结果 |
+| 工具输出/日志 | 20:1 | 仅保留结论 |
+| 代码片段 | 3:1 | 关键函数+注释 |
+| 配置文件 | 2:1 | 关键配置项 |
+
+---
+
+## 📥 记忆存储
+
+### WAL协议（写前行·立即触发）
+满足以下任一条件，先写SESSION-STATE再执行：
 - 用户明确表达偏好
 - 做出重要决策
 - 用户给出截止日期
 - 用户纠正错误
 
-**延迟存储** (任务完成后):
-- 成功经验
-- 失败教训
-- 新发现的知识
+### 分级存储
 
-### 存储格式
+| 记忆类型 | 存储位置 | 层级 |
+|----------|---------|------|
+| 核心规则/偏好 | memory.md | HOT |
+| 项目专属经验 | projects/{name}.md | WARM |
+| 领域知识 | domains/{topic}.md | WARM |
+| 每日日志 | episodes/YYYY-MM-DD.md | WARM |
+| 向量记忆 | LanceDB | VECTOR |
 
-```markdown
-## Memory Entry — YYYY-MM-DD HH:mm
-
-**Type**: [preference|decision|fact|lesson|pattern]
-**Importance**: [0.0-1.0]
-**Category**: [project|domain|global]
-**Decay**: [初始衰减评分]
-
-**Content**:
-[记忆内容，简洁明了]
-
-**Context**:
-- 场景: [什么情况下]
-- 触发: [什么触发了这条记忆]
-- 应用: [将来如何使用]
-
-**Related**:
-- [相关记忆链接]
+### 双重评分模型
+```
+综合评分 = 衰减分(30%) × 时间因子 + 使用分(70%) × log2(调用次数+1)
 ```
 
-### 衰减模型
-
-```
-relevance(t) = base × e^(-0.03 × days_since_access) × log2(access_count + 1) × type_weight
-```
-
-| 评分 | 状态 | 行为 |
-|------|------|------|
+| 评分区间 | 状态 | 处置 |
+|----------|------|------|
 | 1.0–0.5 | Active | 正常检索 |
 | 0.5–0.2 | Fading | 降优先级 |
 | 0.2–0.05 | Dormant | 仅显式搜索 |
 | < 0.05 | Archived | 隐藏归档 |
 
+### 相似度合并
+- 相似度 ≥ 80% → 自动合并，提炼为一条精炼记忆
+- 相似度 < 80% → 独立存储
+
 ---
 
-## 自我学习机制
+## 🔍 检索策略
 
-### 学习信号
+### 置信度标注
+- 🟢 **高**（≥0.8）：直接应用
+- 🟡 **中**（0.5–0.8）：参考+提示不确定性
+- 🔴 **低**（<0.5）：提示可能不准确，需用户确认
 
-**纠正信号** → 立即记录到 corrections.md:
-- "No, that's not right..."
-- "Actually, it should be..."
-- "I prefer X, not Y"
+### 双轨检索
+- **语义向量检索**：概念相关召回（精确）
+- **关键词检索**：精确匹配加速（快速）
+- 取交集最优解
 
-**偏好信号** → 升级到 memory.md:
-- "I like when you..."
-- "Always do X for me"
-- "Never do Y"
+### 检索意图识别
 
-**模式信号** → 追踪，3次确认后升级:
-- 相同指令重复3+次
-- 工作流反复成功
-- 用户表扬特定方法
+| 意图 | 策略 | 来源优先级 |
+|------|------|-----------|
+| 记忆检索（查历史） | 本地记忆优先 | 本地→网络 |
+| 网络检索（查实时） | 网络信息优先 | 网络→本地 |
 
 ### 升级规则
-
-| 条件 | 升级动作 |
-|------|----------|
-| 7天内使用3次 | WARM → HOT |
-| 30天未使用 | HOT → WARM |
-| 90天未使用 | WARM → COLD |
-| 用户确认 | 立即升级 |
+| 条件 | 动作 |
+|------|------|
+| 7日内使用3次 | WARM → HOT |
+| 30日未使用 | HOT → WARM |
+| 90日未使用 | WARM → COLD |
 
 ---
 
-## 文件结构
+## 📊 变更审计
+
+### audit.log 格式
+```
+| 时间戳 | 操作 | 文件 | 摘要 | 重要性 |
+```
+
+### 七类变更全覆盖
+CREATE / UPDATE / DELETE / MERGE / ARCHIVE / RESTORE / UPGRADE
+
+### 保留期限
+**30日**自动清理（每月1日强制执行），仅保留最近30天记录
+
+---
+
+## 🔐 敏感信息隔离
+
+### 标签
+```
+[SENSITIVE] — 自动隔离标记
+```
+
+### 五不参与
+- 不参与压缩
+- 不参与向量索引
+- 不参与跨会话同步
+- 不参与衰减评分
+- 不参与检索召回（除非显式查询）
+
+### 识别关键词
+密码/密钥/API Key/token/secret/private/私人/密码锁
+
+---
+
+## 🎯 自适应精度
+
+| 模式 | 精度 | 适用场景 | 检索深度 |
+|------|------|---------|---------|
+| 快速 | 低 | 简单问答 | 浅 |
+| 标准 | 中 | 常规任务 | 中 |
+| 深度 | 高 | 复杂任务/研究 | 深 |
+
+- 切换时机：任务开始时自动判断
+- 降级协议：Token超限时自动从标准→快速
+
+---
+
+## 🔗 快捷指令
+
+| 指令 | 功能 |
+|------|------|
+| `/omni_compress [文本]` | 上下文压缩 |
+| `/omni_analyze [任务]` | 任务分析拆解 |
+| `/omni_recall [查询]` | 向量检索记忆 |
+| `/omni_store [内容]` | 存储到记忆库 |
+| `/omni_reflect` | 运行反思循环 |
+| `/omni_stats` | 查看记忆统计 |
+| `/omni_clean` | 记忆卫生清理 |
+| `/omni_workflow` | 显示当前工作流状态 |
+
+---
+
+## 📁 文件结构
 
 ```
 ~/.workbuddy/
-├── memory/                          # 记忆根目录
-│   ├── SESSION-STATE.md             # 当前任务状态 (ULTRA-HOT)
-│   ├── MEMORY.md                    # 核心记忆 (HOT)
-│   ├── index.md                     # 主题索引 (HOT)
-│   ├── episodes/                    # 每日日志 (WARM)
-│   │   └── YYYY-MM-DD.md
-│   ├── projects/                    # 项目记忆 (WARM)
-│   │   └── {project-name}.md
-│   ├── domains/                     # 领域知识 (WARM)
-│   │   └── {domain}.md
-│   ├── archive/                     # 归档记忆 (COLD)
-│   ├── meta/                        # 元数据
-│   │   ├── decay-scores.json        # 衰减评分
-│   │   ├── reflection-log.md        # 反思日志
-│   │   ├── audit.log                # 审计日志
-│   │   └── workflow-state.md        # 工作流状态
-│   └── corrections.md               # 纠正记录
-├── skills/omni-memory/              # 本技能
-│   ├── SKILL.md                     # 主文件
-│   ├── rules/                       # 规则文件
-│   │   ├── compression.md           # 压缩规则
-│   │   ├── retrieval.md             # 检索规则
-│   │   ├── learning.md              # 学习规则
-│   │   └── workflow.md              # 工作流规则
-│   ├── templates/                   # 模板文件
-│   │   ├── session-state.md         # 会话状态模板
-│   │   ├── memory-entry.md          # 记忆条目模板
-│   │   └── reflection.md            # 反思模板
-│   └── scripts/                     # 脚本工具
-│       └── init.sh                  # 初始化脚本
-└── .lancedb/                        # 向量数据库
-    └── memories/
+├── memory/                    # 记忆根目录
+│   ├── SESSION-STATE.md      # 当前任务态 (ULTRA-HOT)
+│   ├── MEMORY.md             # 核心记忆 (HOT)
+│   ├── index.md              # 主题索引 (HOT)
+│   ├── corrections.md        # 纠正记录
+│   ├── episodes/             # 每日日志 (WARM, 7日归档)
+│   ├── projects/             # 项目记忆 (WARM)
+│   ├── domains/              # 领域知识 (WARM)
+│   ├── archive/              # 归档记忆 (COLD)
+│   └── meta/
+│       ├── audit.log         # 变更审计（30日清理）
+│       ├── decay-scores.json # 衰减评分
+│       ├── reflection-log.md  # 反思日志
+│       └── workflow-state.md # 工作流状态
+├── skills/omni-memory/       # 本技能
+│   ├── SKILL.md              # 主文件（极简压缩版）
+│   ├── rules/                # 规则子文件
+│   ├── templates/            # 模板文件
+│   └── scripts/init.sh       # 初始化脚本
+└── .lancedb/memories/        # 向量数据库
 ```
 
 ---
 
-## 初始化配置
+## ✅ 验收检查（每次更新后必查）
 
-### 1. 创建记忆目录结构
-
-```bash
-mkdir -p ~/.workbuddy/memory/{episodes,projects,domains,archive,meta}
-touch ~/.workbuddy/memory/{SESSION-STATE.md,MEMORY.md,index.md,corrections.md}
-```
-
-### 2. 配置向量检索
-
-在 `~/.workbuddy/config.json`:
-
-```json
-{
-  "memorySearch": {
-    "enabled": true,
-    "provider": "openai",
-    "sources": ["memory"],
-    "minScore": 0.3,
-    "maxResults": 10
-  },
-  "omniMemory": {
-    "autoCompress": true,
-    "compressThreshold": 0.7,
-    "autoRecall": true,
-    "recallLimit": 5,
-    "autoLearn": true,
-    "decayEnabled": true,
-    "auditEnabled": true
-  }
-}
-```
-
-### 3. 初始化模板文件
-
-运行初始化脚本:
-```bash
-bash ~/.workbuddy/skills/omni-memory/scripts/init.sh
-```
+- [ ] 全部9项能力零损失
+- [ ] Token三级预算 + 降级备选已写入
+- [ ] 审计日志30日清理已写入
+- [ ] 双重评分+相似合并规则已写入
+- [ ] 四律（文简义丰/表代文/层级缩/无废句）已执行
+- [ ] 快捷指令全部覆盖
+- [ ] 快捷指令全部覆盖
+- [ ] 文件结构与规则一致
 
 ---
 
-## 使用示例
-
-### 示例1: 完整工作流
-
-**用户**: "帮我写一个Python脚本处理CSV文件"
-
-**Agent执行**:
-
-```
-Step 1 [Compress]: 压缩上下文 → SESSION-STATE.md
-Step 2 [Analyze]:  分析任务 → 代码任务/中等复杂度/需pandas
-Step 3 [Recall]:   检索记忆 → 发现用户偏好: 喜欢简洁代码
-Step 4 [Execute]:  编写脚本 → 交付代码
-Step 5 [Extract]:  提炼经验 → pandas处理CSV最佳实践
-Step 6 [Store]:    存储记忆 → projects/csv-handler.md
-```
-
-### 示例2: 快速检索
-
-**用户**: `/omni_recall Python CSV处理`
-
-**Agent输出**:
-```
-检索到3条相关记忆:
-1. [projects/csv-handler.md] pandas读取大CSV优化技巧 (importance: 0.9)
-2. [domains/python.md] 常用数据处理模式 (importance: 0.8)
-3. [episodes/2026-04-01.md] 上次CSV处理经验 (importance: 0.7)
-```
-
-### 示例3: 反思循环
-
-**用户**: `/omni_reflect`
-
-**Agent执行**:
-1. 读取近期episodes
-2. 分析成功/失败模式
-3. 生成反思报告
-4. 更新memory.md规则
-5. 记录到reflection-log.md
-
----
-
-## 性能优化
-
-### Token优化
-
-| 策略 | 效果 |
-|------|------|
-| 上下文压缩 | 减少80% Token占用 |
-| 分层记忆 | 仅加载必要层级 |
-| 向量检索 | 精确召回，减少噪声 |
-| 衰减清理 | 自动移除过期记忆 |
-
-### 速度优化
-
-| 策略 | 效果 |
-|------|------|
-| HOT缓存 | 毫秒级访问 |
-| 异步检索 | 并行向量搜索 |
-| 索引优化 | LanceDB索引加速 |
-| 增量更新 | 仅更新变化部分 |
-
----
-
-## 故障排除
-
-| 问题 | 原因 | 解决方案 |
-|------|------|----------|
-| 记忆未加载 | 文件路径错误 | 检查 ~/.workbuddy/memory/ 结构 |
-| 检索无结果 | 向量库未初始化 | 运行 init.sh 初始化 |
-| Token超限 | 压缩未触发 | 检查 compressThreshold 配置 |
-| 记忆重复 | 去重失败 | 手动运行 /omni_clean |
-| 衰减过快 | 评分配置错误 | 调整 decay 参数 |
-
----
-
-## 相关技能
-
-- **Elite Longterm Memory**: 分层记忆架构
-- **Memory Hygiene**: 记忆清理维护
-- **Self-Improving Agent**: 自我学习进化
-- **Cognitive Memory**: 认知记忆系统
-- **OpenViking**: 代码知识检索
-
----
-
-*Omni-Memory: 记住重要的，忘记无关的，持续进化。*
+*Omni-Memory v2.0: 记住重要的，忘记无关的，极简进化。*
