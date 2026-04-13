@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # omni-memory v2.0
 
 **终极AI Agent记忆系统** — 6层架构·9大能力·极简四律
@@ -34,4 +33,3 @@
 =======
 # skills-omni-memory
 管理openclaw记忆系统的综合技能
->>>>>>> a186c29368a30851dc11b81de319c4a31285c068
